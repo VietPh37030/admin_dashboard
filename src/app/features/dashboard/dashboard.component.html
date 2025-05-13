@@ -1,0 +1,15 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-toolbar>
+    <mat-slide-toggle (change)="toggleTheme()" [checked]="isDarkMode">
+      {{ isDarkMode ? 'Dark Mode' : 'Light Mode' }}
+    </mat-slide-toggle>
+    <div style="margin-left: auto;">
+      <button (click)="switchLanguage('vn')">🇻🇳</button>
+      <button (click)="switchLanguage('en')">🇬🇧</button>
+    </div>
+  </mat-toolbar>
+  <div style="padding: 20px;">
+    <h1>{{ 'WELCOME_MESSAGE' | translate }}</h1>
+    <p>{{ 'DESCRIPTION' | translate }}</p>
+  </div>
+</mat-sidenav-container>
