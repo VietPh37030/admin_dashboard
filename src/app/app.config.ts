@@ -13,7 +13,7 @@ import { provideZoneChangeDetection } from '@angular/core';
 
 // Factory cho HttpLoader
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, 'assets/i18n-new/', '.json');
+  return new TranslateHttpLoader(http, './i18n/', '.json');
 }
 
 export const appConfig: ApplicationConfig = { 

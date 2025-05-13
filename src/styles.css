@@ -3,13 +3,42 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 /* styles.css */
+/* Định nghĩa theme cho toàn bộ ứng dụng */
 .light-theme {
-    background-color: #ffffff;
-    color: #000000;
-  }
-  
-  .dark-theme {
-    background-color: #1a1a1a;
-    color: #ffffff;
-  }
-  
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.dark-theme {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+/* Tùy chỉnh mat-toolbar */
+.light-theme .mat-toolbar {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.dark-theme .mat-toolbar {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+}
+
+/* Tùy chỉnh văn bản trong mat-slide-toggle */
+.light-theme .mat-toolbar .mat-slide-toggle-label {
+  color: #000000 !important;
+}
+
+.dark-theme .mat-toolbar .mat-slide-toggle-label {
+  color: #ffffff !important;
+}
+
+/* Tùy chỉnh văn bản trong mat-button */
+.light-theme .mat-toolbar .mat-button {
+  color: #000000 !important;
+}
+
+.dark-theme .mat-toolbar .mat-button {
+  color: #ffffff !important;
+}
