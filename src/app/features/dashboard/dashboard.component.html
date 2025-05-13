@@ -4,12 +4,19 @@
       {{ isDarkMode ? 'Dark Mode' : 'Light Mode' }}
     </mat-slide-toggle>
     <div style="margin-left: auto;">
-      <button (click)="switchLanguage('vn')">🇻🇳</button>
-      <button (click)="switchLanguage('en')">🇬🇧</button>
+      <button mat-button (click)="switchLanguage('vn')">🇻🇳 Tiếng Việt</button>
+      <button mat-button (click)="switchLanguage('en')">🇬🇧 English</button>
     </div>
   </mat-toolbar>
   <div style="padding: 20px;">
-    <h1>{{ 'WELCOME_MESSAGE' | translate }}</h1>
-    <p>{{ 'DESCRIPTION' | translate }}</p>
+    <h1>{{'WELCOME_MESSAGE' | translate }}</h1>
+    <p>{{'DESCRIPTION' | translate }}</p>
+    
+    <!-- Debug info để kiểm tra -->
+    <div style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;">
+      <p>Debug Info:</p>
+      <p>Current Language: {{ currentLang }}</p>
+      <p>Dark Mode: {{ isDarkMode }}</p>
+    </div>
   </div>
 </mat-sidenav-container>
