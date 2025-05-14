@@ -7,7 +7,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatButtonModule } from '@angular/material/button';
-
+import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -20,7 +20,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatToolbarModule,
     MatSlideToggleModule,
     TranslateModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
 })
 export class DashboardComponent implements OnInit {
