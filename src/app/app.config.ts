@@ -10,6 +10,10 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideZoneChangeDetection } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 // Factory cho HttpLoader
 export function HttpLoaderFactory(http: HttpClient) {
@@ -33,7 +37,14 @@ export const appConfig: ApplicationConfig = {
         },
         defaultLanguage: 'en',
         isolate: false
-      })
-    )
+      }),
+      ReactiveFormsModule,
+      MatSnackBarModule
+    ),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ] 
 };

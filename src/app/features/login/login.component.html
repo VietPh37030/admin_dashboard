@@ -1,22 +1,38 @@
-<mat-card>
+<div class="login-container">
+  <mat-card>
     <mat-card-header>
-        <h2>LoginForm</h2>
-        <mat-card-content>
-            <form>
-                <mat-form-field>
-                    <mat-label>Email</mat-label>
-                    <input matInput placeholder="Email" name="email" required/>
-                    <mat-icon matTextSuffix>mail</mat-icon>
-                </mat-form-field>
-            </form>
-            <form>
-                <mat-form-field>
-                    <mat-label>Password</mat-label>
-                    <input matInput placeholder="Password" name="password" required/>
-                    <mat-icon matTextSuffix>password</mat-icon>
-                </mat-form-field>
-                <button mat-raised-button color="#f9f9f9">Login</button>
-            </form>
-        </mat-card-content>
+      <mat-card-title>Đăng nhập</mat-card-title>
     </mat-card-header>
-</mat-card>
+    
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Tên đăng nhập</mat-label>
+          <input matInput formControlName="username" placeholder="Nhập tên đăng nhập" required>
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-error *ngIf="loginForm.controls['username'].hasError('required')">
+            Vui lòng nhập tên đăng nhập
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Mật khẩu</mat-label>
+          <input matInput formControlName="password" type="password" placeholder="Nhập mật khẩu" required>
+          <mat-icon matSuffix>lock</mat-icon>
+          <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+            Vui lòng nhập mật khẩu
+          </mat-error>
+        </mat-form-field>
+
+        <div class="error-message" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </div>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || loading" class="full-width login-button">
+          <span *ngIf="!loading">Đăng nhập</span>
+          <span *ngIf="loading">Đang xử lý...</span>
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
